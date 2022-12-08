@@ -19,7 +19,10 @@ class ProduitResource extends JsonResource
             'nom' => $this->nom,
             'details' => $this->details,
             'prix' => $this->prix,
-            'stock' => $this->stock,
+            'stock' => $this->stock == 0 ? 'En rupture de stock' : $this->stock,
+            'href' => [
+                'commande' => route('commande.index',$this->id)
+            ]
         ];
     }
 }

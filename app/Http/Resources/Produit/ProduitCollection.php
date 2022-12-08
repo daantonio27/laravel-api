@@ -14,6 +14,11 @@ class ProduitCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'nom' => $this->nom,
+            'href' => [
+                'link' => route('produits.show',$this->id)
+            ],
+        ];
     }
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Commande;
 use App\Http\Requests\StoreCommandeRequest;
 use App\Http\Requests\UpdateCommandeRequest;
+use App\Http\Resources\Commande\CommandeResource;
+use App\Models\Produit;
 
 class CommandeController extends Controller
 {
@@ -13,9 +15,9 @@ class CommandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Produit $produit)
     {
-        //
+        return CommandeResource::collection($produit->commande);
     }
 
     /**

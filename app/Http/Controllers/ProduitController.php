@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produit;
 use App\Http\Requests\StoreProduitRequest;
 use App\Http\Requests\UpdateProduitRequest;
+use App\Http\Resources\Produit\ProduitResource;
 
 class ProduitController extends Controller
 {
@@ -15,7 +16,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        //
+        return Produit::all();
     }
 
     /**
@@ -46,8 +47,8 @@ class ProduitController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Produit $produit)
-    {
-        //
+    {return $produit;
+        return new ProduitResource($produit);
     }
 
     /**

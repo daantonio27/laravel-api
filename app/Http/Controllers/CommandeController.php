@@ -17,6 +17,7 @@ class CommandeController extends Controller
      */
     public function index(Produit $produit)
     {
+        return Commande::all();
         return CommandeResource::collection($produit->commande);
     }
 

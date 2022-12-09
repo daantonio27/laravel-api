@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Client;
 use App\Models\Produit;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,7 +19,10 @@ class CommandeFactory extends Factory
             'produit_id' => function() {
                 return Produit::all()->random();
             },
-            'client' => $this->faker->name,
+            /*'client_id' => function() {
+                return Client::all()->random();
+            },*/
+            'client' => $this->faker->name(),
             'description' => $this->faker->paragraph,
 
 

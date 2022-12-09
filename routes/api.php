@@ -15,6 +15,8 @@ Route::apiResource('/produits', ProduitController::class);
 
 Route::apiResource('/clients', ClientController::class);
 
+Route::apiResource('/commandes', CommandeController::class);
+
 Route::group(['prefix'=>'produits'], function() {
     Route::apiResource('/{produit}/commande', CommandeController::class);
 });

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\ProduitController;
+use App\Models\Commande;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +17,11 @@ Route::apiResource('/produits', ProduitController::class);
 
 Route::apiResource('/clients', ClientController::class);
 
+Route::get('/clients/{id}', 'ClientController@show');
+
 Route::apiResource('/commandes', CommandeController::class);
+
+Route::get('/commandes/{id}', 'CommandeController@show');
 
 Route::group(['prefix'=>'produits'], function() {
     Route::apiResource('/{produit}/commande', CommandeController::class);

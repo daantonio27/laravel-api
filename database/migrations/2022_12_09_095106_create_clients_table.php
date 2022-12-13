@@ -18,8 +18,10 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->text('adresse');
             $table->string('email')->unique();
-            $table->integer('produit_id')->unsigned()->index();
-            $table->foreign('produit_id')->references('id')->on('produits')->onDelete('cascade');
+            /*
+                $table->integer('commande_id')->unsigned()->index();
+                $table->foreign('commande_id')->references('id')->on('commande')->onDelete('cascade');
+            */
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\CommandeItems;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ProduitSeeder::class);
         $this->call(CommandeSeeder::class);
         $this->call(ClientSeeder::class);
+        $this->call(CommandeItemsSeeder::class);
     }
 }

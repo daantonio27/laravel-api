@@ -15,17 +15,24 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('produit_id')->unsigned()->index();
-            $table->foreign('produit_id')->references('id')->on('produits')->onDelete('cascade');
-            //$table->integer('client_id')->unsigned()->index();
-            //$table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            //$table->integer('client_id')->unsigned()->nullable();
+
+            /*
+                $table->integer('produit_id')->unsigned()->index();
+                $table->foreign('produit_id')->references('id')->on('produits')->onDelete('cascade');
+                $table->integer('client_id')->unsigned()->index();
+                $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+                //$table->integer('client_id')->unsigned()->nullable();
+            */
 
             //$table->foreign('client_id')->references('id')->on('clients')->onUpdate('cascade')->onDelete('set null');
-            $table->string('client');
+            //$table->string('client_id');
+            $table->integer('client_id')->unsigned()->index();
+            $table->foreign('client_id')->references('id')->on('clients');
             $table->text('description');
+            $table->text('status');
             $table->timestamps();
         });
+
     }
 
     /**

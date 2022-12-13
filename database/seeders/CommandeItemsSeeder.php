@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\CommandeItems;
 use Illuminate\Database\Seeder;
 
-class CarSeeder extends Seeder
+class CommandeItemsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,6 @@ class CarSeeder extends Seeder
      */
     public function run()
     {
-        //
+        CommandeItems::factory()->times(100)->create();
     }
 }

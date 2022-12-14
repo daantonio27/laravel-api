@@ -19,13 +19,10 @@ class CommandeFactory extends Factory
             'produit_id' => function() {
                 return Produit::all()->random();
             },
-            /*'client_id' => function() {
+            'client_id' => function() {
                 return Client::all()->random();
-            },*/
-            'client' => $this->faker->name(),
+            },
             'description' => $this->faker->paragraph,
-
-
         ];
     }
 }

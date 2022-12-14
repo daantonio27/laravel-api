@@ -48,12 +48,6 @@ class CommandeController extends Controller
      * @param  \App\Models\Commande  $commande
      * @return \Illuminate\Http\Response
      */
-    /*public function show(Commande $commande)
-    {
-        $commande = Commande::findOrFail($commande);
-        return response()->json($commande);
-    }*/
-
     public function show($id)
     {
         $commande = Commande::findOrFail($id);

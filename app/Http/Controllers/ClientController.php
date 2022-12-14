@@ -47,7 +47,8 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        $client = Client::findOrFail($id);
+        $client = Client::with('commandes')->findOrFail($id);
+
         return response()->json($client);
     }
 

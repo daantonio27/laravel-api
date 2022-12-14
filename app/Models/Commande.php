@@ -11,6 +11,11 @@ class Commande extends Model
 
     public function produit()
     {
-        return $this->belongsTo(Produit::class);
+        return $this->hasMany(Produit::class);
+    }
+
+    public function commandes()
+    {
+        return $this->hasOne(Client::class);
     }
 }

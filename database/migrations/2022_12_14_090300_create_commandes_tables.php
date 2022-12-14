@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommandesTable extends Migration
+class CreateCommandesTables extends Migration
 {
     /**
      * Run the migrations.
@@ -17,12 +17,8 @@ class CreateCommandesTable extends Migration
             $table->increments('id');
             $table->integer('produit_id')->unsigned()->index();
             $table->foreign('produit_id')->references('id')->on('produits')->onDelete('cascade');
-            //$table->integer('client_id')->unsigned()->index();
-            //$table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            //$table->integer('client_id')->unsigned()->nullable();
-
-            //$table->foreign('client_id')->references('id')->on('clients')->onUpdate('cascade')->onDelete('set null');
-            $table->string('client');
+            $table->integer('client_id')->unsigned()->index();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->text('description');
             $table->timestamps();
         });

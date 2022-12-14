@@ -18,9 +18,6 @@ class ClientFactory extends Factory
             'name' => $this->faker->name(),
             'adresse' => $this->faker->address,
             'email' => $this->faker->unique()->safeEmail(),
-            'produit_id' => function() {
-                return Produit::all()->random();
-            },
         ];
     }
 }

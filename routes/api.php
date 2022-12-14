@@ -7,13 +7,15 @@ use App\Http\Controllers\ProduitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', HomeController::class);
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/', HomeController::class);
+
 Route::apiResource('/produits', ProduitController::class);
+
+Route::get('/produits/{id}', 'ProduitController@show');
 
 Route::apiResource('/clients', ClientController::class);
 
@@ -22,7 +24,3 @@ Route::get('/clients/{id}', 'ClientController@show');
 Route::apiResource('/commandes', CommandeController::class);
 
 Route::get('/commandes/{id}', 'CommandeController@show');
-
-Route::group(['prefix'=>'produits'], function() {
-    Route::apiResource('/{produit}/commande', CommandeController::class);
-});

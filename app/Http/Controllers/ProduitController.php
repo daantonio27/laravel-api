@@ -16,7 +16,7 @@ class ProduitController extends Controller
      */
     public function index()
     {
-        return ProduitResource::collection(Produit::paginate(20));
+        return Produit::all();
     }
 
     /**
@@ -46,9 +46,11 @@ class ProduitController extends Controller
      * @param  \App\Models\Produit  $produit
      * @return \Illuminate\Http\Response
      */
-    public function show(Produit $produit)
-    {return $produit;
-        return new ProduitResource($produit);
+    public function show($id)
+    {
+        $produit = Produit::with('commandes')->findOrFail($id);
+
+        return response()->json($produit);
     }
 
     /**

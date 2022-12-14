@@ -14,7 +14,7 @@ class Commande extends Model
         return $this->hasMany(Produit::class);
     }
 
-    public function commandes()
+    public function client()
     {
         return $this->hasOne(Client::class);
     }
